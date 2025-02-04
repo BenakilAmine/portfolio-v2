@@ -5,8 +5,9 @@ import { Canvas, useFrame } from "@react-three/fiber";
 import { Points, PointMaterial } from "@react-three/drei";
 import * as random from "maath/random/dist/maath-random.esm";
 import { useScrollPosition } from "@/hooks/useScrollPosition";
+import * as THREE from 'three';
 
-const StarLayer = ({ count, radius, minSize, maxSize, opacity, speedMultiplier }: {
+const StarLayer = ({ count, radius, minSize, opacity, speedMultiplier }: {
   count: number;
   radius: number;
   minSize: number;
@@ -14,7 +15,7 @@ const StarLayer = ({ count, radius, minSize, maxSize, opacity, speedMultiplier }
   opacity: number;
   speedMultiplier: number;
 }) => {
-  const ref = useRef<any>();
+  const ref = useRef<THREE.Points>(null);
   const { scrollY } = useScrollPosition();
   const lastScrollY = useRef(scrollY);
   const scrollSpeed = useRef(0);
@@ -39,7 +40,7 @@ const StarLayer = ({ count, radius, minSize, maxSize, opacity, speedMultiplier }
     
     const totalSpeed = baseSpeed.current + scrollSpeed.current;
 
-    const positions = ref.current.geometry.attributes.position.array;
+    const positions = ref.current!.geometry.attributes.position.array;
 
     for (let i = 0; i < positions.length; i += 3) {
       // Vitesse de déplacement réduite
@@ -58,7 +59,7 @@ const StarLayer = ({ count, radius, minSize, maxSize, opacity, speedMultiplier }
       }
     }
 
-    ref.current.geometry.attributes.position.needsUpdate = true;
+    ref.current!.geometry.attributes.position.needsUpdate = true;
     lastScrollY.current = scrollY;
   });
 
