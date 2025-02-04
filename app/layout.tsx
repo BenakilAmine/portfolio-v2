@@ -1,11 +1,8 @@
 "use client";
 
-import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { OptimizedStars } from "@/components/shared/OptimizedStars";
 import Navbar from "@/components/main/Navbar";
-import Footer from "@/components/main/Footer";
 import { SWRConfig } from 'swr';
 import { swrConfig, localStorageProvider } from '@/lib/swr-config';
 import { Suspense } from 'react';

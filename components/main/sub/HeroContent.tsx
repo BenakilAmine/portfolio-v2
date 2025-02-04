@@ -37,7 +37,7 @@ const HeroContent = () => {
                     variants={slideInFromLeft(0.8)}
                     className='text-lg text-gray-400 my-5 max-w-[600px]'
                 >
-                    Développeur Full Stack passionné avec 4 ans d'expérience dans la création d'applications web modernes et performantes.
+                    Développeur Full Stack passionné avec 4 ans d&apos;expérience dans la création d&apos;applications web modernes et performantes.
                     Spécialisé en React, Node.js et architectures microservices.
                 </motion.p>
                 <motion.a
